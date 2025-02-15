@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 8px;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Flight Price Predictor</h2>
+    <form action="/predict" method="POST">
+        <label for="duration">Duration:</label>
+        <input type="text" id="duration" name="duration" required><br><br>
+    
+        <label for="days_left">Days Left:</label>
+        <input type="text" id="days_left" name="days_left" required><br><br>
+    
+        <label for="departure_hour">Departure Hour:</label>
+        <input type="text" id="departure_hour" name="departure_hour" required><br><br>
+    
+        <label for="arrival_hour">Arrival Hour:</label>
+        <input type="text" id="arrival_hour" name="arrival_hour" required><br><br>
+    
+        <button type="submit">Predict Price</button>
+    </form>
+    
+
+    {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>
